@@ -68,6 +68,11 @@ h2 {
 	font-family: 'Dosis';
 	text-align: center;
 	font-weight:300;
+	padding: 0;
+	margin: 5px;
+}
+
+#thinking {
 	position: relative;
 	top: -300px;
 	left: 0;
@@ -135,9 +140,9 @@ fieldset {
 */}
 
 #correct {
-	position: absolute;
-	top: 300px;
-	left: 295px;
+	position: relative;
+	top: -292px;
+	left: 163px;
 	font-family: Ribeye Marrow;
 	font-size: 45px;
 	display:none;
@@ -160,32 +165,27 @@ fieldset {
 
 
 #low {
-	position: absolute;
-	top: 200px;
-	left: 205px;
-	width: 400px;
-	display:none;
+	position: relative;
+	top: -150px;
+	left: 0;
 }
 
 #high {
-	position: absolute;
-	top: 200px;
-	left: 180px;
-	width: 400px;
-	display: none;
+	position: relative;
+	top: -150px;
+	left: 0;
 }
 
 #again {
-	position:absolute;
-	top: 40px;
-	left: 212px;
-	width: 400px;
+	position: absolute;
+	top: 300px;
+	left: 295px;
+	-webkit-transform: rotate(-34deg);
+}
+
+#low, #high, #again {
 	display:none;
-	}
-
-
-
-
+}
 
 
 

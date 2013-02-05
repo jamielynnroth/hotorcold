@@ -5,69 +5,55 @@
 	<meta charset="utf-8">
 	<title>Hot Or Cold</title>
 	<link rel="stylesheet" href="Style.css">
-	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery2.js"></script>
 	<script type="text/javascript" src="javascript.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Over+the+Rainbow|Keania+One' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Ribeye+Marrow' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500' rel='stylesheet' type='text/css'>
 
-
-
 </head>
-
 <body>
 	<div class="wrapper">
 		
 		<div id="title">
-		<h1> hot <span>or</span> cold? </h1>
-	</div><!--#title-->
+			<h1> hot <span>or</span> cold? </h1>
+		</div><!--#title-->
+		
 		<div id="box">
+
 			<!-- This is where the half opacity box goes-->
 		</div> <!-- #box -->
 		
-		<h2> I'm thinking of a number between 0 and 100!</h2>
-
+		<div id="thinking">
+			<h2> I'm thinking of a number between 0 and 100!</h2>
+		</div><!-- #thinking-->
+		
 		<div id="again">
 			<h2>Guess Again!</h2>
 		</div>
 
-		<form id="controls">
+		<div>
+			<form id="controls">
+				<fieldset>
+					<input type="number" id="number" min="0" max="100" step="1" value="50">
+					<input type="submit" id="play" value="Guess">
+				</fieldset>
+			</form>
+		</div> <!-- form #controls wrapper-->
+		
 
-			<fieldset>
-				<!-- <input type="number" id="guess" value="Guess a number"> -->
-			<!-- 	<select name="number" id="number">
-					<option value="0"selected>0</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-				</select> -->
-				<input type="number" id="number" min="0" max="100" step="1" value="50">
-				<input type="submit" id="play" value="Guess">
-			</fieldset>
-		</form>
-
-		<div id="high">
+		<div class="hidden" id="high">
 			<h2>Too high this time! </h2>
-		</div>
+		</div><!-- #high-->
 
-		<div id="low">
-			<h2>Sorry, too low...</h2>
-		</div>
+		<div class="hidden" id="low">
+			<h2>Sorry, too low... </h2>
+		</div><!--#low-->
 
 		<div id="correct">
-		<form >
-			<input type="submit" id="play_again" value="Play Again!">
-		</form>
-		</div>
+			<form>
+				<input type="submit" id="play_again" value="Play Again!">
+			</form>
+		</div><!-- #correct -->
 	</div><!-- .wrapper -->
-
 </body>
 </html>
