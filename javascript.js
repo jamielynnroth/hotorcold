@@ -1,4 +1,3 @@
-// // Randomly select a number between 0 and 50
 $(document).ready(function(){
 var number= Math.floor(Math.random()*101);
 
@@ -14,6 +13,30 @@ var number= Math.floor(Math.random()*101);
 		}); //#play_again button
 }); //doc ready
 
+var oldNew = function (){
+		$("#controls input").each(function(){
+				var originalGuess=$('#controls input').val();
+				console.log(originalGuess);
+				$('#controls input').data("oldVal", (originalGuess).val());
+			}); //each
+
+		$('#controls input').change(function(){
+			var currentGuess= $(this);
+			console.log(currentGuess);
+			var newValue = $(this).data("newVal", currentGuess);
+		}); //change
+
+		$('#controls input').focus(function(){
+			var oldValue = $(this).data('oldVal');
+		}); //focus
+
+		// if (lastGuess-number < guess-number){
+		// 	console.log("Getting warmer!");
+		// }else if (lastGuess-numbe > guess-number) {
+		// 	console.log("Brrrr...");
+		// };
+}; //oldNew
+
 
 
 // // Check if the guess is correct
@@ -23,7 +46,7 @@ var playGame = function (guess, number){
 	}else if (guess == number){
 		// console.log('got it');
 		$('#correct').show();
-		$('#correct').html(number +'! Yahtzee!'+ '<form><input type="button" id="play_again" value="Play Again!"></form>');
+		$('.correct_number').html(number);
 		$('#high').hide();
 		$('#low').hide();
 		$('#again').hide();
@@ -35,12 +58,7 @@ var playGame = function (guess, number){
 		$('#low').hide();
 		$('#correct').hide();
 		$('#again').fadeToggle('slow', 'linear');
-		// var lastGuess= guess;
-		// if (lastGuess-number < guess-number){
-		// 	console.log("Getting warmer!");
-		// }else if (lastGuess-numbe > guess-number) {
-		// 	console.log("Brrrr...");
-		// };
+		oldNew();
 	}else if (guess < number){
 		// console.log('too low');
 		$('#again').fadeToggle('slow', 'linear');
@@ -48,13 +66,13 @@ var playGame = function (guess, number){
 		$('#high').hide();
 		$('#correct').hide();
 		$('#again').fadeToggle('slow', 'linear');
-		// lastGuess= guess;
+		oldNew();
 		// if (lastGuess-number < guess-number){
 		// 	console.log("Getting warmer!");
 		// }else if (lastGuess-numbe > guess-number) {
 		// 	console.log("Brrrr...");
 		// };
-	};
+	}
 };
 
 
