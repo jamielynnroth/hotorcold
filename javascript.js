@@ -13,31 +13,28 @@ var number= Math.floor(Math.random()*101);
 		}); //#play_again button
 }); //doc ready
 
-var oldNew = function (){
-		$("#controls input").each(function(){
-				var originalGuess=$('#controls input').val();
-				console.log(originalGuess);
-				$('#controls input').data("oldVal", (originalGuess).val());
-			}); //each
-
-		$('#controls input').change(function(){
-			var currentGuess= $(this);
-			console.log(currentGuess);
-			var newValue = $(this).data("newVal", currentGuess);
-		}); //change
-
-		$('#controls input').focus(function(){
-			var oldValue = $(this).data('oldVal');
-		}); //focus
-
-		// if (lastGuess-number < guess-number){
-		// 	console.log("Getting warmer!");
-		// }else if (lastGuess-numbe > guess-number) {
-		// 	console.log("Brrrr...");
-		// };
-}; //oldNew
 
 
+var feedback = function (guess, number, prevGuess){
+		if (Math.abs(guess-number) < Math.abs(prevGuess-number)){
+			// console.log("Getting warmer!");
+			$('#warmer').fadeToggle('slow', 'linear');
+			$('#warmer').fadeToggle('slow', 'linear');
+		}else if (Math.abs(guess-number) > Math.abs(prevGuess-number)) {
+			// console.log("Brrrr...");
+			$('#colder').fadeToggle('slow', 'linear');
+			$('#colder').fadeToggle('slow', 'linear');
+		}else if (guess-number === 1){
+			$('#almost').fadeToggle('slow', 'linear');
+			$('#almost').fadeToggle('slow', 'linear');
+		}else if (!prevGuess){
+			return ;
+		}
+}; //feedback
+
+
+
+var prevGuess = null;
 
 // // Check if the guess is correct
 var playGame = function (guess, number){
@@ -58,7 +55,7 @@ var playGame = function (guess, number){
 		$('#low').hide();
 		$('#correct').hide();
 		$('#again').fadeToggle('slow', 'linear');
-		oldNew();
+		feedback(guess, number, prevGuess);
 	}else if (guess < number){
 		// console.log('too low');
 		$('#again').fadeToggle('slow', 'linear');
@@ -66,14 +63,15 @@ var playGame = function (guess, number){
 		$('#high').hide();
 		$('#correct').hide();
 		$('#again').fadeToggle('slow', 'linear');
-		oldNew();
-		// if (lastGuess-number < guess-number){
-		// 	console.log("Getting warmer!");
-		// }else if (lastGuess-numbe > guess-number) {
-		// 	console.log("Brrrr...");
-		// };
+		feedback(guess, number, prevGuess);
 	}
+	prevGuess = guess;
+	// console.log(prevGuess);
 };
+
+
+
+
 
 
 
