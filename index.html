@@ -26,30 +26,33 @@
 		</div> <!-- #box -->
 		
 		<div id="thinking">
-			<h2> I'm thinking of a number between 0 and 100!</h2>
+			<h2> I'm thinking of a number between 0 and 50!</h2>
+			<hr>
 		</div><!-- #thinking-->
 		
-		<div id="again">
-			<h3>Guess Again!</h3>
-		</div>
+		
 
 		<div>
 			<form id="controls">
 				<fieldset>
-					<input type="number" id="number" min="0" max="100" step="1" value="50">
+					<input type="number" id="number" min="0" max="50" step="1" value="25">
 					<input type="submit" id="play" value="Guess">
 				</fieldset>
 			</form>
 		</div> <!-- form #controls wrapper-->
 		
 
-		<div class="hidden" id="high">
-			<h2>Too high this time! </h2>
+	<div class="hidden" id="high">
+			<h2> A bit too high! </h2>
 		</div><!-- #high-->
 
 		<div class="hidden" id="low">
 			<h2>Sorry, too low... </h2>
-		</div><!--#low-->
+		</div><!--#low--> 
+	<div id="feedback">
+		<div id="again">
+			<h3>Guess Again!</h3>
+		</div>
 
 		<div id="warmer">
 			<h3>Getting warmer!</h3>
@@ -62,6 +65,7 @@
 		<div id="almost">
 			<h3>Almost there!</h3>
 		</div><!-- #almost -->
+	</div> <!-- #feedback --> 
 
 		<div id="correct">
 			<span class="correct_number"></span>! Yahtzee!

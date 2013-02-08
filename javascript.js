@@ -1,5 +1,5 @@
 $(document).ready(function(){
-var number= Math.floor(Math.random()*101);
+var number= Math.floor(Math.random()*51);
 
 	$('#controls').submit(function(event){
 		event.preventDefault();
